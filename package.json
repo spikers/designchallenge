@@ -1,0 +1,29 @@
+{
+  "name": "designchallenge",
+  "version": "1.0.0",
+  "description": "We want design challenges to feel fair, where employers can see an applicant's skills and the applicant feels comfortable completing it.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spikers/designchallenge.git"
+  },
+  "author": "Tim Feng, Jing Feng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spikers/designchallenge/issues"
+  },
+  "homepage": "https://github.com/spikers/designchallenge#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
