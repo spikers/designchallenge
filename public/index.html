@@ -6,5 +6,28 @@
 </head>
 <body>
   <h2>Job ID: <span id="job-id">590e45f9277478083080769d</span></h2>
+  <form id="upload_form" action="#" enctype="multipart/form-data" method="post">
+    <input name="work" type="file" id="iurl">
+    <input id='submit' type="submit" value="Upload">
+  </form>
+  <script>
+    var iurl = document.getElementById('iurl');
+    var form = document.getElementById('upload_form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var file = iurl.files[0];
+      console.log(file);
+
+      var fd = new FormData(document.getElementById('upload_form'));
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'http://localhost:8000/test');
+      xhr.addEventListener('load', function (data) {
+        console.log(data);
+      })
+      xhr.send(fd);
+
+    })
+    
+  </script>
 </body>
 </html>

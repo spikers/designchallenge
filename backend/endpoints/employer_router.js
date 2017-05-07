@@ -18,6 +18,7 @@ router
       "job_title": req.body.job_title,
       "description": req.body.description,
       "prompt": req.body.prompt,
+      "prompt_teaser": req.body.prompt_teaser,
       "start_time": req.body.start_time,
       "end_time": req.body.end_time,
     });

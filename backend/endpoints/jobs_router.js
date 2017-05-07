@@ -1,7 +1,19 @@
 import express from 'express';
-import multer from 'multer';
 const router = express.Router();
-router.use(multer().none());
+
+import multer from 'multer';
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/uploads/');
+  },
+  filename: function (req, file, cb) {
+    console.log('file', file);
+    cb(null, file.originalname)
+  }
+});
+const upload = multer({storage: storage});
+
+router.use(upload.single('work'));
 
 import { employerModel } from '../database/models/employer';
 

@@ -5,6 +5,7 @@ const employerSchema = mongoose.Schema({
   job_title: String,
   description: String,
   prompt: String,
+  prompt_teaser: String,
   start_time: Date,
   end_time: Date,
   applicants: [{
