@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="style.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+</head>
+<body>
+    
+<header class="div-header">
+	<div id="header-container">
+		<div class="applican-logo">
+			<img src="img/applican-logo.svg">
+		</div>
+
+		<div class="img-myaccount">
+				<img src="img/img-myaccount@2x.jpg">
+				<span class="my-account">My Account</span>
+		</div>
+	</div>
+</header>
+
+<div class="div-main">
+	<h1>Design Challenge (2 Hours)</h1>	
+
+	<div class="div-gray-challenge">
+		<h2>Create wireframe sketches showing a flow for an innovative feature that allows patients to schedule doctor’s appointments.</h2>
+		<ul>∙ Ideas will be evaluated for process and thoroughness.</ul>
+		<ul>∙ Outline assumptions, interactions, and other details, as needed.</ul>
+	</div>
+
+	<div class="div-normal">
+
+		<div class="upload-1">
+		</div>
+		
+		<div class="upload-btn-2">
+			<p>Please upload 1 file in PDF, PNG, or JPG format.</p>
+			<img src="img/btn-upload.svg" width="120px">
+		</div>
+		
+		<div class="timer-3">
+
+			<p>Time Left</p>
+			<h2 id="timer"></h2>
+
+
+		</div>
+
+	</div>
+
+	<div class="div-normal">
+		<div class="text-field-title">
+		<input type="text" name="title" size="35" placeholder="Add a descriptive title (maximum 35 characters)">
+		</div>
+	</div>
+
+	<div class="div-normal">
+		<div class="text-field-description">
+			<textarea placeholder="Write a description about what you’ve created…"></textarea>
+		</div>
+	</div>
+
+	<div class="div-normal">
+		<img src="img/btn-save.svg">
+		<img src="img/btn-submit.svg">
+	</div>
+
+</div>
+
+			<script>
+			// Set the date we're counting down to
+			var countDownDate = new Date("May 7, 2017 13:37:25").getTime();
+
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+
+			    // Get todays date and time
+			    var now = new Date().getTime();
+			    
+			    // Find the distance between now an the count down date
+			    var distance = countDownDate - now;
+			    
+			    // Time calculations for days, hours, minutes and seconds
+			    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			    
+			    // Output the result in an element with id="demo"
+			    document.getElementById("timer").innerHTML = hours + "h "
+			    + minutes + "m " + seconds + "s ";
+			    
+			    // If the count down is over, write some text 
+			    if (distance < 0) {
+			        clearInterval(x);
+			        document.getElementById("timer").innerHTML = "EXPIRED";
+			    }
+			}, 1000);
+			</script>
+
+</body>
+</html>

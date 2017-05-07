@@ -1,0 +1,203 @@
+body {
+    font-family: 'Muli', sans-serif;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+
+}
+
+body * {
+    box-sizing: border-box;
+    font-family: 'Muli', sans-serif;
+}
+
+body > * {
+    font-size: 1rem;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    font-family: Muli;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    color: #303030;
+}
+
+h2 {
+    font-family: Muli;
+    font-size: 18px;
+    color: #303030;
+}
+
+p {
+    font-family: Muli;
+    font-size: 16px;
+    color: #000000;
+}
+
+/* Header */
+
+.div-header {
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    box-shadow: 1px 1px 2px 0 rgba(186, 186, 186, 0.9);
+    display: flex;
+}
+
+#header-container {
+    width: 940px;
+    height: 50px;
+    background-color: #fff;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header-container .applican-logo {
+    width: 138px;
+    height: 25px;
+    object-fit: contain;
+}
+
+#header-container .img-myaccount img {
+    width: 36px;
+    height: 36px;
+/*  object-fit: contain;*/
+    border: solid 0px #e7e7e7;
+    margin-right: 3%;
+}
+
+.img-myaccount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.my-account {
+    display: inline-block;
+    width: 91px;
+    height: 20px;
+    font-family: Muli;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0074cd;
+}
+
+
+/* Main Div */
+
+.div-main {
+    width: 940px;
+    height: 750px;
+    margin: 30px auto;
+    border-radius: 4px;
+    background-color: #ffffff;
+    padding: 15px 25px;
+    box-shadow: 0 0 2px 0 rgba(186, 186, 186, 0.5);
+
+}
+
+.div-gray-challenge {
+    width: 820px;
+    height: 158px;
+    margin: 26px auto;
+    border-radius: 4px;
+    background-color: #fbfbfb;
+    padding: 6px 25px 0px 25px;
+
+}
+
+.div-normal {
+    width: 820px;
+    margin: 26px auto;
+    border-radius: 4px; 
+    display: flex;
+/*    border: solid 1px #cfcfcf;  */
+    justify-content: space-between;  
+}
+
+.upload-1 {
+    width: 188px;
+    height: 140px;
+    border-radius: 4px;
+    border: solid 1px #cfcfcf;
+    align-content: flex-start;
+}
+
+.upload-btn-2 {
+    width: 420px;
+    height: 140px;
+    /*border: solid 1px #cfcfcf;*/
+}
+
+.timer-3 {
+    width: 140px;
+    height: 140px;
+    font-size: 18px;
+    background-color: #ffffee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*border: solid 1px #cfcfcf;*/
+    align-content: flex-start;
+    text-align: center;
+}
+
+input[type="text"] {
+    display: block;
+    margin: 0px;
+    padding: 5px;
+    width: 100%;
+    font-family: Muli;
+    font-size: 16px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: 4px;
+}
+
+textarea {
+    width: 820px;
+    height: 120px;
+    border: 3px solid #cccccc;
+    padding: 5px;
+    font-size: 16px;
+    resize: vertical;
+    box-shadow: none;
+    border-radius: 4px;
+}
+
+.text-field-title {
+    width: 820px;
+    height: 20px;
+    border-radius: 4px;
+/*  border: solid 1px #cfcfcf;*/
+    flex-direction: column;
+}
+
+.text-field-description {
+    width: 820px;
+    height: 160px;
+    border-radius: 4px;
+    resize: vertical;
+/*  border: solid 1px #cfcfcf;*/
+}
+
+.div-halves {
+    
+}
+
