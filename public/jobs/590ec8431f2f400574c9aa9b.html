@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+<header class="div-header">
+  <div id="header-container">
+    <div class="applican-logo">
+      <img src="../img/applican-logo.svg">
+    </div>
+
+    <div class="img-myaccount">
+        <img src="../img/img-myaccount@2x.jpg">
+        <span class="my-account">My Account</span>
+    </div>
+  </div>
+</header>
+
+<div class="div-main">
+  <h1 id="company-text">ZipRecruiter</h1>
+  <h1>Design Challenge (2 Hours)</h1> 
+
+  <div class="div-gray-challenge">
+    <h2 id="prompt-text">Create wireframe sketches showing a flow for an innovative feature that allows patients to schedule doctor’s appointments.</h2>
+    <ul>∙ Ideas will be evaluated for process and thoroughness.</ul>
+    <ul>∙ Outline assumptions, interactions, and other details, as needed.</ul>
+  </div>
+
+  <div class="div-normal">
+
+    <div class="upload-1">
+            <img id="preview-image" />
+    </div>
+    
+    <div class="upload-btn-2">
+      <p>Please upload 1 file in PDF, PNG, or JPG format.</p>
+            <form id="upload_form" action="#" enctype="multipart/form-data" method="post">
+                <input name="work" type="file" id="iurl" >
+            </form>
+      <!-- <img src="img/btn-upload.svg" width="120px">  -->
+    </div>
+    
+    <div class="timer-3">
+
+      <p>Time Left</p>
+      <h2 id="timer"></h2>
+
+
+    </div>
+
+  </div>
+
+  <div class="div-normal">
+    <div class="text-field-title">
+    <input id="title-input" type="text" name="title" size="35" placeholder="Add a descriptive title (maximum 35 characters)">
+    </div>
+  </div>
+
+  <div class="div-normal">
+    <div class="text-field-description">
+      <textarea id="description-textarea" placeholder="Write a description about what you've created..."></textarea>
+    </div>
+  </div>
+
+  <div class="div-normal">
+    <img src="../img/btn-save.svg">
+    <img id="pageSubmit" src="../img/btn-submit.svg">
+  </div>
+
+</div>
+
+  <script>
+  var countDownDate = new Date("May 7, 2017 13:37:25").getTime();
+  var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("timer").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+      if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("timer").innerHTML = "EXPIRED";
+      }
+  }, 1000);
+  </script>
+
+    
+    <script>
+    var url = "http://localhost:8000/jobs/590ec8431f2f400574c9aa9b"
+    var iurl = document.getElementById('iurl');
+    var form = document.getElementById('upload_form');
+    form.addEventListener('change', function (e) {
+      e.preventDefault();
+      var file = iurl.files[0];
+      var fd = new FormData(document.getElementById('upload_form'));
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'http://localhost:8000/jobs/image');
+      xhr.addEventListener('load', function (data) {
+        var imageURL = JSON.parse(data.target.response).location;
+        var previewImage = document.getElementById('preview-image');
+        previewImage.src = imageURL;
+      })
+      xhr.send(fd);
+
+    })
+
+    var pageSubmit = document.getElementById('pageSubmit');
+    pageSubmit.addEventListener('click', function () {
+      var fd = new FormData();
+      var firstNames = ["Noah","Emma","Liam","Olivia","Mason","Sophia","Jacob","Ava","William","Isabella","Ethan","Mia","James","Abigail","Alexander","Emily","Michael","Charlotte","Benjamin","Harper"];
+      var lastNames = ["Smith","Johnson","Williams","Jones","Brown","Davis","Miller","Wilson","Moore","Taylor","Anderson","Thomas","Jackson","White","Harris","Martin","Thompson","Garcia","Martinez","Robinson","Clark","Rodriguez","Lewis","Lee","Walker","Hall","Allen","Young","Hernandez","King","Wright","Lopez","Hill","Scott","Green","Adams"];
+
+      fd.append("id", Math.floor(Math.random() * 1000));
+      fd.append("name", firstNames[Math.floor(Math.random() * firstNames.length)] + " " + lastNames[Math.floor(Math.random() * lastNames.length)]);
+      fd.append("submission_title", document.getElementById('title-input').value);
+      fd.append("submission_file", document.getElementById('preview-image').src);
+      fd.append("submission_description", document.getElementById('description-textarea').value);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', url);
+      xhr.addEventListener('load', function (data) {
+        console.log('Complete!', data.target.response);
+      })
+      xhr.send(fd);
+    })
+
+    </script>
+</body>
+</html>

@@ -8,24 +8,29 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const d = new Date();
-    const fileName = file.originalName.substring(0, indexOf('.')) + d + file.originalName.substring(indexOf('.'));
+    const fileName = file.originalname.substring(0, file.originalname.indexOf('.')) + d + file.originalname.substring(file.originalname.indexOf('.'));
     cb(null, fileName);
   }
 });
 const upload = multer({storage: storage});
 
-router.use(upload.single('work'));
-
 import { employerModel } from '../database/models/employer';
 
 router
-  .get('/:job_id', function (req, res) {
+  .get('/id/:job_id', function (req, res) {
     employerModel.findById(req.params.job_id, function (err, data) {
       res.json(data);
     })
   })
+  .post('/image', upload.single('work'), function (req, res) {
+    res.json({
+      status: 200,
+      action: "Submitted successfully",
+      location: "http://localhost:8000/" + encodeURIComponent(req.file.path.substring(req.file.path.indexOf('/')))
+    })
+  })
   
-  .post('/:job_id', function (req, res) {
+  .post('/:job_id', upload.none(), function (req, res) {
     employerModel.findByIdAndUpdate(
       req.params.job_id,
       {$push: {
@@ -39,6 +44,7 @@ router
       }},
       {safe: true, new : true},
       function(err, model) {
+        console.log(err);
         if (err) {
           res.json({
             status: 400,
@@ -48,7 +54,8 @@ router
         }  
         res.json({
           status: 200,
-          action: "Submitted successfully"
+          action: "Submitted successfully",
+          location: req.params.submission_file
         });
         return;
       }
