@@ -16,6 +16,8 @@ const upload = multer({storage: storage});
 
 import { employerModel } from '../database/models/employer';
 
+import { employerEmail } from '../components/email_campaigns';
+
 router
   .get('/id/:job_id', function (req, res) {
     employerModel.findById(req.params.job_id, function (err, data) {
@@ -60,6 +62,7 @@ router
         return;
       }
     );
+    employerEmail();
   })
 
 
