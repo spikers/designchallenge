@@ -7,8 +7,9 @@ const storage = multer.diskStorage({
     cb(null, 'public/uploads/');
   },
   filename: function (req, file, cb) {
-    console.log('file', file);
-    cb(null, file.originalname)
+    const d = new Date();
+    const fileName = file.originalName.substring(0, indexOf('.')) + d + file.originalName.substring(indexOf('.'));
+    cb(null, fileName);
   }
 });
 const upload = multer({storage: storage});
