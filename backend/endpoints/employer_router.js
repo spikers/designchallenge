@@ -6,7 +6,6 @@ let router = express.Router();
 router.use(multer().none());
 router
   .get('/', function (req, res) {
-    console.log('router hit');
     res.json({
       'code': 200,
       'msg': 'router hit',
@@ -38,6 +37,6 @@ router
       });
 
     })
-  });
+  })
   
 export { router };
