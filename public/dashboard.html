@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,78 +25,39 @@
 
 <div class="div-main-dashboard">
   <div class="div-main-horizontal">
-    <div class="div-halves">
-      <div class="half-image">
-        <img src="">
-      </div>
 
-      <div class="worksample-title">
-        <h2>Innovating Doctor Appointment Scheduling with an AI Chatbot</h2>
-      </div>
-
-      <div class="btns-reject-accept">
-        <img src="img/btn-reject.svg">
-        <img src="img/btn-accept.svg">
-      </div>
-    </div>
-
-    <div class="div-whitespace">
-    </div>
-
-    <div class="div-halves">
-      <div class="half-image">
-        <img src="">
-      </div>
-
-      <div class="worksample-title">
-        <h2>Innovating Doctor Appointment Scheduling with an AI Chatbot</h2>
-      </div>
-
-      <div class="btns-reject-accept">
-        <img src="img/btn-reject.svg">
-        <img src="img/btn-accept.svg">
-      </div>
-    </div>
   </div>
 </div>
+<script>
+var main = document.getElementsByClassName('div-main-horizontal')[0];
+var frag = document.createDocumentFragment();
 
-<div class="div-main-dashboard">
-  <div class="div-main-horizontal">
-    <div class="div-halves">
+var url = 'http://localhost:8000/jobs/id/590ec8431f2f400574c9aa9b';
+var xhr = new XMLHttpRequest();
+xhr.open('GET', url);
+xhr.addEventListener('load', function (data) {
+	var posting = JSON.parse(data.target.response);
+	posting.applicants.map(function (item) {
+		var card = `<div class="div-halves">
       <div class="half-image">
-        <img src="">
+        <img src="${item.submission_file}">
       </div>
 
       <div class="worksample-title">
-        <h2>Innovating Doctor Appointment Scheduling with an AI Chatbot</h2>
+        <h2>${item.submission_title}</h2>
       </div>
 
       <div class="btns-reject-accept">
         <img src="img/btn-reject.svg">
         <img src="img/btn-accept.svg">
       </div>
-    </div>
+    </div>`;
+    main.innerHTML += card;
+	});
 
-    <div class="div-whitespace">
-    </div>
-
-    <div class="div-halves">
-      <div class="half-image">
-        <img src="">
-      </div>
-
-      <div class="worksample-title">
-        <h2>Innovating Doctor Appointment Scheduling with an AI Chatbot</h2>
-      </div>
-
-      <div class="btns-reject-accept">
-        <img src="img/btn-reject.svg">
-        <img src="img/btn-accept.svg">
-      </div>
-    </div>
-  </div>
-</div>
-
+});
+xhr.send();
+</script>
 
 </body>
 </html>
