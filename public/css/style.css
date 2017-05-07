@@ -238,11 +238,12 @@ textarea {
     height: 300px;
     background-color: #000;
     border-radius: 4px 4px 0 0;
+    text-align: center;
 }
 
 .half-image img {
-  width: 450px;
-  height: 300px;
+  max-width: 450px;
+  max-height: 300px;
 }
 
 .worksample-title {

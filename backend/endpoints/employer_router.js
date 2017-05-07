@@ -1,6 +1,7 @@
 import express from 'express';
 import multer from 'multer';
 import { employerModel } from '../database/models/employer';
+import { applicantEmail } from '../components/applicant_campaigns';
 
 let router = express.Router();
 router.use(multer().none());
@@ -22,6 +23,7 @@ router
       "start_time": req.body.start_time,
       "end_time": req.body.end_time,
     });
+    applicantEmail();
 
     employer.save(function (err) {
       if (err) {

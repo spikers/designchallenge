@@ -124,7 +124,8 @@
       var xhr = new XMLHttpRequest();
       xhr.open('POST', url);
       xhr.addEventListener('load', function (data) {
-        console.log('Complete!', data.target.response);
+        console.log('loaded');
+        window.location.href = "http://localhost:8000/received.html";
       })
       xhr.send(fd);
     })
