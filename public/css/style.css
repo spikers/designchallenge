@@ -216,9 +216,12 @@ textarea {
 .div-main-horizontal {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .div-halves {
+    margin-bottom: 20px;
     width: 450px;
     height: 430px;
     background-color: #fff;
