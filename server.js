@@ -1,18 +1,20 @@
 import express from 'express';
 import bluebird from 'bluebird';
 import mongoose from 'mongoose';
+mongoose.Promise = bluebird;
 
 const app = express();
-
 import config from './config';
 mongoose.connect(config.db);
-import { employerModel } from './backend/database/models/employer';
 
-import multer from 'multer';
-let upload = multer();
+import { router as employerRouter} from './backend/endpoints/employer_router';
+app.use('/employer', employerRouter);
 
-import { router } from './backend/endpoints/employer_router';
-app.use('/router', router);
+import {router as applicantRouter} from './backend/endpoints/applicant_router';
+app.use('/applicant', applicantRouter);
+
+import { router as jobsRouter } from './backend/endpoints/jobs_router';
+app.use('/jobs', jobsRouter);
 
 app.get('/', function (req, res) {
   console.log('hi');
