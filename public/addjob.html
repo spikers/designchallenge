@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      input {
+        display: block;
+        width: 500px;
+      }
+    </style>
+</head>
+<body>
+
+<header class="div-header">
+  <div id="header-container">
+    <div class="applican-logo">
+      <img src="img/applican-logo.svg">
+    </div>
+
+    <div class="img-myaccount">
+        <img src="img/img-myaccount@2x.jpg">
+        <span class="my-account">My Account</span>
+    </div>
+  </div>
+</header>
+
+<div class="div-main">
+  <h1>Design Challenge (2 Hours)</h1>
+
+  <form id="add-job-form">
+    Company Name: <input id="company_name" name="company_name" value="ZipRecruiter">
+    Job Title: <input id="job_title" name="job_title" value="UI/UX Designer (Mobile)">
+    Description: <input id="description" name="description" value="Create innovative job hunting experiences for the gig economy!">
+    Start Date: <input id="start_date" name="start_date" value="2017-05-06T15:00:00.000Z">
+    End Date: <input id="start_date" name="end_date" value="2017-05-12T15:00:00.000Z">
+    Prompt Type: Create wireframe sketches showing a flow for an innovative feature that allows patients to schedule doctor's appointments.<br>
+    <button>Submit</button>
+  </form>
+
+</div>
+  <script>
+    var pageSubmit = document.getElementById('add-job-form');
+    var url = 'http://localhost:8000/employer';
+
+    pageSubmit.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var fd = new FormData(pageSubmit);
+      console.log(fd);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', url);
+      xhr.addEventListener('load', function (data) {
+        window.location.href = "http://localhost:8000/received.html";
+      })
+      xhr.send(fd);
+    })
+
+    </script>
+</body>
+</html>
