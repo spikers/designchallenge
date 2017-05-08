@@ -17,7 +17,7 @@ let mailOptions = {
     to: 'timfengineering@gmail.com', // list of receivers
     subject: 'For Employers - Your Design Challenge is Complete!', // Subject line
     text: 'Your candidates have just completed their design challenge. Use this link to review the results and select candidates who will be moving forward with your hiring process. http://localhost:8000/dashboard.html . Please let us know if you have any questions. Team Applican',
-    html: `Hi Jade,<br>
+    html: `Hi Tim,<br>
 <br>
 Your candidates have just completed their design challenge. <br>
 <br>
